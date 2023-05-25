@@ -2,25 +2,26 @@ using UnityEngine;
 
 public class SpawningZombiesPoint : MonoBehaviour
 {
-    public Zombie zombiePrefab;
+    [SerializeField] GameObject enemyPrefab;
     public float waitTime = 1;
-    private System.Random rnd;
+    private int spawnInterval;
     private int counter;
 
-    public bool _spawiningNew = true;
+    public bool spawningNew = true;
     // Start is called before the first frame update
     void Awake()
     {
         counter = 0;
+        spawnInterval = Random.Range(300, 500);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        int rnd = Random.Range(300,500);
-        if (counter*waitTime > rnd) {
-            Zombie zombie = Instantiate(this.zombiePrefab, this.transform.position, this.transform.rotation);
+        if (counter * waitTime > spawnInterval && spawningNew) {
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             counter = 0;
+            spawnInterval = Random.Range(300, 500);
         } else {
             counter++;
         }
