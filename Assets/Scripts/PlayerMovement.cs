@@ -5,11 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] Camera cam;
-
+    
+    Rigidbody2D rigidBody;
     Vector2 moveInput;
     Vector2 mousePosition;
+
+    void Start() 
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
@@ -29,6 +34,4 @@ public class PlayerMovement : MonoBehaviour
         float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rigidBody.rotation = lookAngle;
     }
-
-
 }
