@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 targetDirection = target.position - transform.position;
         float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, targetAngle));
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, q, turnSpeed);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, q, turnSpeed * Time.deltaTime);
     }
 
     public void InitiateKnockBack(float knockBackAmount, float knockBackDuration, Vector2 knockBackDirection)
