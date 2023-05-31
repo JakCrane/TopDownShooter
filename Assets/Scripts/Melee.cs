@@ -5,18 +5,18 @@ using UnityEngine;
 public class Melee : MonoBehaviour
 {
     [SerializeField] int damage;
-    // [SerializeField] float selfKnockMagnitude = 100f;
-    // [SerializeField] float selfKnockDuration = 0.5f;
-    // [SerializeField] float victimKnockMagnitude = 100f;
-    // [SerializeField] float victimKnockDuration = 0.5f;
+    [SerializeField] float selfKnockMagnitude = 100f;
+    [SerializeField] float selfKnockDuration = 0.5f;
+    [SerializeField] float victimKnockMagnitude = 100f;
+    [SerializeField] float victimKnockDuration = 0.5f;
 
     Health victimHealth;
-    // MovementManip movement;
-    // MovementManip victimMovement;
+    MovementManip movement;
+    MovementManip victimMovement;
 
     void Awake()
     {
-        // movement = GetComponent<MovementManip>();
+        movement = GetComponent<MovementManip>();
     }
 
     void OnCollisionEnter2D(Collision2D other) 
@@ -29,9 +29,9 @@ public class Melee : MonoBehaviour
             Debug.Log(victimHealth.GetHealth());
 
             // Knockback self + victim
-            // movement.InitiateKnockBack(selfKnockMagnitude, selfKnockDuration, -transform.up); // knock back self
-            // victimMovement = other.gameObject.GetComponent<MovementManip>();
-            // victimMovement.InitiateKnockBack(victimKnockMagnitude, victimKnockDuration, transform.up); // knock back player that damage was inflicted to
+            movement.InitiateKnockBack(selfKnockMagnitude, selfKnockDuration, -transform.up); // knock back self
+            victimMovement = other.gameObject.GetComponent<MovementManip>();
+            victimMovement.InitiateKnockBack(victimKnockMagnitude, victimKnockDuration, transform.up); // knock back player that damage was inflicted to
         }
     }
 }
