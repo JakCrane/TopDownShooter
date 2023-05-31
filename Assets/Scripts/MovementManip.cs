@@ -30,9 +30,4 @@ public class MovementManip : MonoBehaviour
     {
         return stunned;
     }
-
-    void Update() 
-    {
-        Debug.Log(stunned);
-    }
 }
