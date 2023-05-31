@@ -176,10 +176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  selfKnockMagnitude: 100
-  selfKnockDuration: 0.5
-  victimKnockMagnitude: 100
-  victimKnockDuration: 0.5
+  selfKnockMagnitude: 4
+  selfKnockDuration: 0.15
+  victimKnockMagnitude: 4
+  victimKnockDuration: 0.15
 --- !u!114 &975208992100144313
 MonoBehaviour:
   m_ObjectHideFlags: 0
