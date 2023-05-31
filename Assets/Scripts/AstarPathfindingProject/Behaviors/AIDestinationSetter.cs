@@ -36,7 +36,10 @@ namespace Pathfinding {
 			if (target != null && ai != null) ai.destination = target.position;
 			else
 			{
-				target = GameObject.FindGameObjectWithTag("Player").transform;
+				if (gameObject.tag == "Enemy")
+				{
+					target = GameObject.FindGameObjectWithTag("Player").transform;
+				}
 			}
 		}
 	}

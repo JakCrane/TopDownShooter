@@ -11,12 +11,12 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Vector2 mousePosition;
 
-    // MovementManip moveManip;
+    MovementManip moveManip;
 
     void Start() 
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        // moveManip = GetComponent<MovementManip>();
+        moveManip = GetComponent<MovementManip>();
     }
 
     void Update()
@@ -30,10 +30,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Move in accordance with player's movement input (e.g. WASD)
-        // if (!moveManip.IsStunned())
-        // {
-        rigidBody.MovePosition(rigidBody.position + moveInput * moveSpeed * Time.fixedDeltaTime);
-        // }
+        if (!moveManip.IsStunned())
+        {
+            rigidBody.MovePosition(rigidBody.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+        }
         // Look towards mouse pointer
         Vector2 lookDirection = mousePosition - rigidBody.position;
         float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;

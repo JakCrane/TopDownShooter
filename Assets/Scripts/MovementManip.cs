@@ -12,15 +12,16 @@ public class MovementManip : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void InitiateKnockBack(float magnitude, float duration, Vector2 direction)
+    public void InitiateKnockBack(float magnitude, float duration, Vector3 direction)
     {
+        stunned = true;
         StartCoroutine(KnockBack(magnitude, duration, direction));
     }
 
-    IEnumerator KnockBack(float magnitude, float duration, Vector2 direction)
+    IEnumerator KnockBack(float magnitude, float duration, Vector3 direction)
     {
-        stunned = true;
-        rigidBody.AddForce(direction * magnitude * Time.deltaTime, ForceMode2D.Impulse); // Also affected by how much linear drag is on the gameObject.
+        Debug.Log("Knocking back");
+        rigidBody.AddForce(direction * magnitude, ForceMode2D.Impulse); // Also affected by how much linear drag is on the gameObject.
         yield return new WaitForSeconds(duration);
         stunned = false;
     }
@@ -28,5 +29,10 @@ public class MovementManip : MonoBehaviour
     public bool IsStunned()
     {
         return stunned;
+    }
+
+    void Update() 
+    {
+        Debug.Log(stunned);
     }
 }
