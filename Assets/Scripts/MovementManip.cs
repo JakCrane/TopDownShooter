@@ -20,7 +20,6 @@ public class MovementManip : MonoBehaviour
 
     IEnumerator KnockBack(float magnitude, float duration, Vector3 direction)
     {
-        Debug.Log("Knocking back");
         rigidBody.AddForce(direction * magnitude, ForceMode2D.Impulse); // Also affected by how much linear drag is on the gameObject.
         yield return new WaitForSeconds(duration);
         stunned = false;
