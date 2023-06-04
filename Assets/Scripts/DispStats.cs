@@ -13,13 +13,14 @@ public class DispStats : MonoBehaviour
     public int round = 10;
     public TextMeshProUGUI roundText;
     //score
-    //public TextMeshProUGUI scoreText;
-    //GameObject player;
-    //Health playerHealth;
+    public TextMeshProUGUI scoreText;
+    PlayerInventory playerInventory;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         playerHealth = player.GetComponent<Health>();
+
+        playerInventory = player.GetComponent<PlayerInventory>();
     }
     void FixedUpdate() 
     {
@@ -27,5 +28,7 @@ public class DispStats : MonoBehaviour
         healthText.text = currentHealth.ToString();
 
         roundText.text = round.ToString();
+
+        scoreText.text = playerInventory.GetPoints().ToString();
     }
 }
