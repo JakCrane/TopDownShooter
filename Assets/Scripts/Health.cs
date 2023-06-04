@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int maxHealth = 100;
+    [SerializeField] int pointsOnDeath = 100;
     int health;
 
     void Awake()
@@ -20,6 +21,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
         CheckHealthStatus();
     }
 
@@ -28,6 +30,10 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+
+            PlayerInventory playerPoints = FindObjectOfType<PlayerInventory>();
+            playerPoints.ChangePoints(pointsOnDeath);
+            Debug.Log(playerPoints.GetPoints());
         }
     }
 }
