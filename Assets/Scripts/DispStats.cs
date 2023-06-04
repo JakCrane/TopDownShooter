@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class DispHealth : MonoBehaviour
+public class DispStats : MonoBehaviour
 {
-    public TextMeshProUGUI ValueText;
+    //health
+    public TextMeshProUGUI healthText;
     GameObject player;
     Health playerHealth;
-
+    //round
+    public int round = 10;
+    public TextMeshProUGUI roundText;
+    //score
+    //public TextMeshProUGUI scoreText;
+    //GameObject player;
+    //Health playerHealth;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -17,6 +24,8 @@ public class DispHealth : MonoBehaviour
     void FixedUpdate() 
     {
         int currentHealth = playerHealth.GetHealth();
-        ValueText.text = currentHealth.ToString();
+        healthText.text = currentHealth.ToString();
+
+        roundText.text = round.ToString();
     }
 }
