@@ -33,7 +33,6 @@ public class Health : MonoBehaviour
 
             PlayerInventory playerPoints = FindObjectOfType<PlayerInventory>();
             playerPoints.ChangePoints(pointsOnDeath);
-            Debug.Log(playerPoints.GetPoints());
         }
     }
 }

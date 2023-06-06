@@ -54,19 +54,4 @@ public class EnemyMovement : MonoBehaviour
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, targetAngle));
         transform.localRotation = Quaternion.Slerp(transform.localRotation, q, turnSpeed * Time.deltaTime);
     }
-
-    // Stun script has been moved to MovementManip.cs
-
-    // public void InitiateKnockBack(float knockBackAmount, float knockBackDuration, Vector2 knockBackDirection)
-    // {
-    //     StartCoroutine(KnockBack(knockBackAmount, knockBackDuration, knockBackDirection));
-    // }
-
-    // IEnumerator KnockBack(float knockBackAmount, float knockBackDuration, Vector2 knockBackDirection)
-    // {
-    //     stunned = true;
-    //     rigidBody.AddForce(knockBackDirection * knockBackAmount * Time.deltaTime, ForceMode2D.Impulse); // Also affected by how much linear drag is on the gameObject.
-    //     yield return new WaitForSeconds(knockBackDuration);
-    //     stunned = false;
-    // }
 }
