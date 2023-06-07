@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 975208992100144313}
   - component: {fileID: 7974016877726399804}
   - component: {fileID: 8195045924647977220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyTemplate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  pointsOnDeath: 100
 --- !u!114 &7974016877726399804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975208992415715659}
   - component: {fileID: 975208992415715656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975208992461830035}
   - component: {fileID: 975208992461830034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
