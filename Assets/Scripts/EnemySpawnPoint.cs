@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawnPoint : MonoBehaviour
 {
     int playersPresent = 0;
-    [SerializeField] Transform spawnLocation;
+    [SerializeField] List<Transform> spawnLocations;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,6 +37,7 @@ public class EnemySpawnPoint : MonoBehaviour
 
     public Transform GetSpawnLocation()
     {
-        return spawnLocation;
+        int randomIndex = Random.Range(0, spawnLocations.Count);
+        return spawnLocations[randomIndex];
     }
 }

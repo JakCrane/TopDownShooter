@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     MovementManip moveManip;
 
+    bool isInteracting;
+
     void Start() 
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -21,10 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-            moveInput.x = Input.GetAxisRaw("Horizontal");
-            moveInput.y = Input.GetAxisRaw("Vertical");
-
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        GetPlayerInputs();
     }
 
     void FixedUpdate()
@@ -38,5 +37,27 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDirection = mousePosition - rigidBody.position;
         float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rigidBody.rotation = lookAngle;
+    }
+
+    void GetPlayerInputs()
+    {
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
+
+        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isInteracting = true;
+        }
+        else
+        {
+            isInteracting = false;
+        }
+    }
+
+    public bool IsInteracting()
+    {
+        return isInteracting;
     }
 }

@@ -100,4 +100,5 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: a5c27f3b056816b4dbf12d46074eb386, type: 2}
   - {fileID: 11400000, guid: ee94dd77410ccba44a3d0166a1ffc74a, type: 2}
+  - {fileID: 11400000, guid: e29a879cdd58c5142baff27e601967a2, type: 2}
   waveInterval: 3
