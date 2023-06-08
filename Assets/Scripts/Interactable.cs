@@ -32,7 +32,21 @@ public class Interactable : MonoBehaviour
         }
         else
         {
-            HideInteractText();
+            Interactable[] interactables = FindObjectsOfType<Interactable>();
+            int interactablesInteracting = 0;
+
+            foreach (Interactable i in interactables)
+            {
+                if (i.PlayerPresent())
+                {
+                    interactablesInteracting++;
+                }
+
+                if (interactablesInteracting == 0)
+                {
+                    HideInteractText();
+                }  
+            }
         }
     }
 
@@ -71,6 +85,18 @@ public class Interactable : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             presentPlayer = null;
+        }
+    }
+
+    public bool PlayerPresent()
+    {
+        if (presentPlayer != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
