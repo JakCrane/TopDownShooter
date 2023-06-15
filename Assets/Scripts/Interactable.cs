@@ -7,16 +7,20 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI interactText;
     [SerializeField] int interactCost = 500;
+    [SerializeField] string displayText; // Text to be displayed in game.
 
-    string displayText; // Text to be displayed in game.
     PlayerMovement presentPlayer;
     PlayerInventory presentPlayerInventory;
 
     void Start()
     {
-        if (gameObject.tag == "Gate")
+        if (displayText != null)
         {
-            displayText = "Press F to unlock gate. (Costs " + interactCost + " points)";
+            displayText = displayText + " (Costs " + interactCost + " points)";
+        }
+        else if (gameObject.tag == "Gate")
+        {
+            displayText = "Press F to unlock gate (Costs " + interactCost + " points)";
         }
     }
 
